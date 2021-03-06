@@ -17,7 +17,7 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driver == null) {
 
-            switch ("Chrome") {
+            switch (ConfigReader.getProperty("browser")) {
 
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
@@ -31,9 +31,12 @@ public class Driver {
 
             }
         }
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+
+        return driver;
 
         return driver;
 
